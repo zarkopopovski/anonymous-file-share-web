@@ -1,0 +1,112 @@
+.navigation {
+	width: 100%;
+	height: 80px;
+	margin-bottom: 1px;
+	background-color: gray;
+	text-align: left;
+	padding-top: 15px;
+}
+
+.loader-icon-holder {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 140px;
+}
+
+.title-p {
+	text-align: left;
+	font-size: 36px;
+	margin-left: 10px;
+	color: #FFFFFF;
+}
+
+.version-span {
+	margin-top: 15px;
+	margin-right: 10px;
+	float: right;
+	color: #FFFFFF;
+}
+
+.span-loader {
+	float: right;	
+}
+
+.p-description {
+	margin-bottom: 30px;
+}
+
+.div-container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.uploaded-file-label {
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+}
+
+.file-label {
+
+}
+
+.delete-file {
+	float: right;
+	cursor: pointer;
+}
+
+.response-div {
+	width: 100%;
+	margin-top: 40px;
+}
+
+.total-p {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.email-form {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.button-right {
+	float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.div-height {
+	min-height: calc(100vh - 40px - 80px);
+}
+
+.footer-text {
+	padding-top: 10px;
+	text-align: center;
+}
+
+.footer {
+	height: 40px;
+	width: 100%;
+	background-color: gray;
+}
+
+.lt-label {
+	width: 69%;
+	text-align: right;
+	margin-top: 10px;
+}
+
+.lt-select {
+	width: 30%;
+	float: right;
+}
+
+.drops-path {
+	text-decoration: none;
+	cursor: pointer;
+}
