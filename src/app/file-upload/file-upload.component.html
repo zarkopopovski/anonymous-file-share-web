@@ -1,0 +1,85 @@
+<div class="div-height">
+	<div class="loader-icon-holder">
+		<span class="span-loader" *ngIf="isFileSaving">Saving... wait a minute</span>
+		<span class="span-loader" *ngIf="isFileSharing">Sharing... wait a minute</span>
+	</div>
+	<div class="container-lg">
+		<div class="row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="div-container">
+					<p *ngIf="secretPathKey!=''">Your secret path is: <a class="drops-path" (click)="showDropListing();">http://dropshare.mediartsolutions.de/my-drops/{{secretPathKey}}</a></p>
+					<p class="p-description">Select and upload any file from your computer or add it via drag & drop.:</p>
+					<form name="upload-form">
+				        <ngx-dropzone class="drop-zone-box" (change)="onSelect($event)" [expandable]="true" [multiple]="false">
+							<ngx-dropzone-label>Drop File</ngx-dropzone-label>
+						</ngx-dropzone>
+						<br/>
+						<div class="form-group">
+				            <label htmlFor="lifeTime" class="lt-label">Lifetime</label>
+				            <select id="lifeTime" name="lifeTime" class="form-control lt-select" [(ngModel)]="lifeTime"
+			                #lifeTimeRef="ngModel" (change)="setNewLifeTime($event);">
+			                    <option value="30m" selected>30 minutes</option>
+			                    <option value="1h">1 hour</option>
+			                    <option value="12h">12 hours</option>
+			                    <option value="24h">24 hours</option>
+			                    <option value="7d">7 days</option>
+			                    <option value="14d">14 days</option>
+			                </select>
+				            <!--<div class="help-block">Username is required</div>-->
+				        </div>
+						<!--
+						<div class="uploaded-file-label" *ngFor="let f of uploadedFiles">
+							<label class="file-label">{{ f.name }} ({{ f.type }})</label><span class="delete-file" (click)="onRemove(f)">X</span>
+						</div>
+						-->
+					</form>
+					<div class="response-div" *ngIf="hasResponse">
+						<div *ngIf="hasError"><p>Error!!! {{ errorMessage }}</p></div>
+						<div *ngIf="isFileSaved">
+							<p>You can download / share your file by copying this URL<br/>
+								<a href="http://dropshare.mediartsolutions.de/files/get-file/{{fileToken}}">
+									http://dropshare.mediartsolutions.de/files/get-file/{{fileToken}}
+								</a>
+							</p>
+							<p>or you can delete this file using the following URL<br/>
+								<a href="http://dropshare.mediartsolutions.de/files/delete-file/{{deleteToken}}">
+									http://dropshare.mediartsolutions.de/files/delete-file/{{deleteToken}}
+								</a>
+							</p>
+							<div class="email-form">
+								<hr/>
+								<p>or share it instantly per E-Mail:</p>
+								<form name="share-form">
+								  <div class="form-group" *ngIf="isShareFrom">
+								    <label for="senderEmail">Sender Email address</label>
+								    <input type="email" class="form-control" id="senderEmail" aria-describedby="emailHelp" placeholder="Enter email" name="fromEmail" [(ngModel)]="(isShareFrom)?toEmail:fromEmail">
+								  </div>
+								  <div class="form-group">
+								    <label for="recipientEmail">Recipient Email address</label>
+								    <input type="email" class="form-control" id="recipientEmail" aria-describedby="emailHelp" placeholder="Enter email" name="toEmail" [(ngModel)]="(isShareFrom)?fromEmail:toEmail">
+								  </div>
+								  <div class="form-check">
+								    <input type="checkbox" class="form-check-input" id="shareFrom"  [(ngModel)]="isShareFrom" name="isShareFrom" >
+								    <label class="form-check-label" for="shareFrom">Share from</label>
+								  </div>
+								  <div class="form-check">
+								    <input type="checkbox" class="form-check-input" id="notifyOnDelete"  [(ngModel)]="isNotifyOnDelete" name="isNotifyOnDelete" >
+								    <label class="form-check-label" for="notifyOnDelete">Notify me on auto delete</label>
+								  </div>
+								  <button type="submit" class="btn btn-primary button-right" (click)="sendEmail()">Submit</button>
+								</form>
+								<div class="clear"></div>
+								<hr/>
+							</div>
+						</div>
+					</div>
+					<p class="total-p">Total Traffic: {{totalTraffic}} MB</p>
+				</div>
+		    </div>
+		</div>
+	</div>
+</div>

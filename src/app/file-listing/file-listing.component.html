@@ -1,0 +1,25 @@
+<div class="div-height">
+	<button class="btn btn-success button-right" (click)="showIndexPage();">Drop New File</button>
+	<div class="container-lg">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="drop-list">
+					<ul class="ul-list" *ngIf="filesData && filesData.length > 0; else noFiles">
+						<li *ngFor="let fileData of filesData; let i = index;">
+							<div class="list-row">
+								<label class="l-name">{{fileData.file_name}}</label>
+								<label class="l-size">{{fileData.file_size}}</label>
+								<label class="l-timestamp">{{(fileData.timestamp * 1000) | date:'medium'}}</label>
+								<a class="menu-link" href="http://dropshare.mediartsolutions.de/files/get-file/{{fileData.parameter}}">Download</a>
+								<a class="menu-link" (click)="deleteFile(fileData.parameter2)">Delete</a>
+							</div>
+						</li>
+					</ul>
+					<ng-template #noFiles>
+						No uploaded files
+					</ng-template>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
